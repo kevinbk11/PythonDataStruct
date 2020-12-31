@@ -1,13 +1,15 @@
-
+class Node:
+    def __init__(self, value):
+        self.next = None
+        self.data = value
 class LinkedList:
+
     def __init__(self):
-        class Node:
-            def __init__(self, value):
-                self.next = None
-                self.data = value
+
         self.node = None
         self.next = None
         self.__size=0
+
     def build(self,data):
         self.node=Node(data[0])
         temp=self.node
@@ -38,16 +40,16 @@ class LinkedList:
             self.node.next=last
         self.__size+=1
 
-
+class TreeNode:
+    def __init__(self, data, father):
+        self.value = data
+        self.father = father
+        self.hasChild = False
+        self.child = []
 class Tree:
 
     def __init__(self,root):
-        class TreeNode:
-            def __init__(self, data, father):
-                self.value = data
-                self.father = father
-                self.hasChild = False
-                self.child = []
+
         self.__root=TreeNode(root,None)
 
     def add(self,data,father):#8 3
