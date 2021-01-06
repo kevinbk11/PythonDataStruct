@@ -1,4 +1,4 @@
-#c463w
+#c463
 
 import sys
 class node:
