@@ -1,3 +1,4 @@
+
 def BinarySearch(List,tar):
     left=0
     right=len(List)
@@ -10,7 +11,9 @@ def BinarySearch(List,tar):
         else:
             left=mid
             mid = (right+mid)//2
-    if List[right-1]==tar:
+    if List[left]==tar:
+        print(List[left])
+        print(left)
         return True
     else:
         return False
