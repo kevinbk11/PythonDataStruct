@@ -1,5 +1,5 @@
 
-def BinarySearch(List,tarw):
+def BinarySearch(List,tar):
     left=0
     right=len(List)
     mid = (left+right)//2
