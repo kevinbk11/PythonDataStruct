@@ -1,3 +1,48 @@
+class SegmentNode:
+    def __init__(self,rg):
+        self.range=rg
+        self.max=None
+        self.min=None
+        self.r=None
+        self.l=None
+class SegmentTree:
+    def __init__(self,data):
+        self.top=node(data)
+        self.build(self.top,True)
+    def build(self,data,first):
+        
+        if len(data.range)==1:return data.range[0],data.range[0]
+        if first:
+            self.top.l=SegmentNode(data.range[0:len(data.range)//2])
+            self.top.r=SegmentNode(data.range[len(data.range)//2:len(data.range)])
+            m1,n1=self.build(self.top.l,False)
+            m2,n2=self.build(self.top.r,False)
+            self.top.max=max(m1,m2)
+            self.top.min=min(m1,m2)
+            
+        else:
+            data.l=SegmentNode(data.range[0:len(data.range)//2])
+            data.r=SegmentNode(data.range[len(data.range)//2:len(data.range)])
+            m1,n1=self.build(data.l,False)
+            m2,n2=self.build(data.r,False)
+            data.max=max(m1,m2)
+            data.min=min(n1,n2)
+            return data.max,data.min
+    def printAll(self,nd,first=True):
+        if nd.l==None or nd.r==None:return
+        if first:
+            print(nd.range,nd.max,nd.min)
+        else:
+            print(nd.range,nd.max,nd.min)
+        self.printAll(nd.l,False)
+        self.printAll(nd.r,False)
+
+
+
+
+
+
+
 class Node:
     def __init__(self, value):
         self.next = None
