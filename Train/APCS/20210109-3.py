@@ -8,11 +8,16 @@ class node:
 class tree:
     def __init__(self,start,end):
         self.node=node(start,end)
+        self.s=0
     def addNewRange(self,point,now):
         if (point>=now.start and point<=now.end) and now.left!=None:
-            self.t(point,now.left)
-            self.t(point,now.right)
+            if point>now.left.end:
+                self.addNewRange(point,now.right)
+            else:
+                self.addNewRange(point,now.left)
+
         elif (point>=now.start and point<=now.end) and now.left==None:
+            self.s+=now.end-now.start
             now.left=node(now.start,point)
             now.right=node(point,now.end)
         elif point>now.end or point<now.start:
@@ -38,4 +43,4 @@ for inp in sys.stdin:
     l.sort(key=lambda x:x.f)
     for x in l:
         r.addNewRange(x.p,r.node)
-    print(r.a(r.node))
+    print(r.s)
