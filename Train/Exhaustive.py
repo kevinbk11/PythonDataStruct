@@ -38,3 +38,4 @@ print(f"大小為{m}*{n}的矩形,從左上走到右下 且剛好數值為{d}的
 print("走法如下:")
 for x in ans:
     print(x)
+#複雜度太高
