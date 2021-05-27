@@ -43,4 +43,4 @@ for inp in sys.stdin:
     l.sort(key=lambda x:x.f)
     for x in l:
         r.addNewRange(x.p,r.node)
-    print(r.s)
+    print(r.s)A
